@@ -4,7 +4,7 @@ import torch
 from llama_index.embedings import LangchainEmbedding
 
 from llama_index import (GPTVectorStoreIndex, SimpleDirectoryReader, LLMPredictor, 
-                         ServiceContext,LangchainEmbedding)
+                         ServiceContext, LangchainEmbedding)
 from langchain.embeddings import HuggingFaceInstructEmbeddings
 from llama_index import GPTVectorStoreIndex
 
