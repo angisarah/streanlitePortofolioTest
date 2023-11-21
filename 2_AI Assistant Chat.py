@@ -1,12 +1,12 @@
 import streamlit as st
 from utils.constants import *
 import torch
-from llama_index.embedings import LangchainEmbedding
+#from llama_index.embedings import LangchainEmbedding
 from langchain.embeddings import HuggingFaceEmbeddings
-from llama_index.embeddings import LangchainEmbedding
+#from llama_index.embeddings import LangchainEmbedding
 from langchain.embeddings import OpenAIEmbeddings
 from llama_index import (GPTVectorStoreIndex, SimpleDirectoryReader, LLMPredictor, 
-                         ServiceContext, LangchainEmbedding)
+                         ServiceContext,)
 from langchain.embeddings import HuggingFaceInstructEmbeddings
 from llama_index import GPTVectorStoreIndex
 
@@ -120,7 +120,7 @@ with st.spinner("Initiating the AI assistant. Please hold..."):
     )
                                     
     # Hugging Face models can be supported by using LangchainEmbedding to convert text to embedding vector	
-    embed_model = LangchainEmbedding(embeddings)
+    #embed_model = LangchainEmbedding(embeddings)
     
     # ServiceContext: to encapsulate the resources used to create indexes and run queries    
     service_context = ServiceContext.from_defaults(
