@@ -8,7 +8,7 @@ def local_css(file_name):
     with open(file_name) as f:
         st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
         
-local_css("styles/styles_main.css")
+local_css("styles_main.css")
     
 # get the variables from constants.py
 pronoun = info['Pronoun']
