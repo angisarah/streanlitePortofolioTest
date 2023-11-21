@@ -1,14 +1,14 @@
 import streamlit as st
 from utils.constants import *
 import torch
-from llama_index import *
+#from llama_index import *
 
-from langchain.embeddings import HuggingFaceEmbeddings
+#from langchain.embeddings import HuggingFaceEmbeddings
 #from llama_index.embeddings import LangchainEmbedding
-from langchain.embeddings import OpenAIEmbeddings
-from llama_index import (GPTVectorStoreIndex, SimpleDirectoryReader, LLMPredictor, ServiceContext,)
-from langchain.embeddings import HuggingFaceInstructEmbeddings
-from llama_index import GPTVectorStoreIndex
+#from langchain.embeddings import OpenAIEmbeddings
+#from llama_index import (GPTVectorStoreIndex, SimpleDirectoryReader, LLMPredictor, ServiceContext,)
+#from langchain.embeddings import HuggingFaceInstructEmbeddings
+#from llama_index import GPTVectorStoreIndex
 
 from ibm_watson_machine_learning.foundation_models.extensions.langchain import WatsonxLLM
 from ibm_watson_machine_learning.foundation_models.utils.enums import ModelTypes, DecodingMethods
