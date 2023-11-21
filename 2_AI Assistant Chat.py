@@ -1,7 +1,7 @@
 import streamlit as st
 from utils.constants import *
 import torch
-#from llama_index.embedings import LangchainEmbedding
+
 from langchain.embeddings import HuggingFaceEmbeddings
 #from llama_index.embeddings import LangchainEmbedding
 from langchain.embeddings import OpenAIEmbeddings
