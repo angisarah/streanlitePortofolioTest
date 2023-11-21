@@ -1,6 +1,8 @@
 import streamlit as st
 from utils.constants import *
 import torch
+from llama_index.embedings import LangchainEmbedding
+
 from llama_index import (GPTVectorStoreIndex, SimpleDirectoryReader, LLMPredictor, 
                          ServiceContext,LangchainEmbedding)
 from langchain.embeddings import HuggingFaceInstructEmbeddings
