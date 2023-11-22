@@ -112,7 +112,7 @@ endorsements = {
 
 embed_rss= {
     'rss':"""<div style="overflow-y: scroll; height:500px; background-color:white;"> <div id="retainable-rss-embed" 
-        data-rss="https://www.behance.net/gallery/167442329/Chama-online-shoe-store-UIUX"
+        data-rss="https://www.behance.net/gallery/"
         data-maxcols="3" 
         data-layout="grid"
         data-poststyle="inline" 
