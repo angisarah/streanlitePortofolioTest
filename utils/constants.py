@@ -36,15 +36,15 @@ chat = {
 info = {
    "Pronoun": "her", 
    "Subject": "she", 
-   "Name": "Ange",
+   "Name": "Angesom",
    "Full_Name":"Angesom G.", 
-   "Intro": "A Tech Educator and AI Enthusiast at cognitiveclass.ai",
-   "About":"Hello, I'm Vicky, and I'm passionate about leveraging data and technology to drive meaningful insights and solutions in business. You can explore my portfolio of free courses and resources at cognitiveclass.ai to see how I can contribute to your team's success.",
+   "Intro": "A User inteface designer,developer",
+   "About":"Hello, I'm Angesom , and I'm passionate about leveraging data and technology to drive meaningful insights and solutions in business. You can explore my portfolio of free courses and resources at cognitiveclass.ai to see how I can contribute to your team's success.",
    "Project":"https://author.skills.network/instructors/vicky_kuo",
    "Medium":"https://medium.com/@vicky-note/about",
-   "City":"Toronto, Canada",
+   "City":"Addis Ababa,Ethiopia",
    "Resume": "https://drive.google.com/file/d/1e_trgOgzwYIY6eMSvjmyjgqBcCOdueZ1/view?usp=sharing",
-   "Email": "vicky.kuo.contact@gmail.com" 
+   "Email": "wedisarah123@gmail.com" 
 }
 
 projects = [
