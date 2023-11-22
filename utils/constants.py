@@ -112,7 +112,7 @@ endorsements = {
 
 embed_rss= {
     'rss':"""<div style="overflow-y: scroll; height:500px; background-color:white;"> <div id="retainable-rss-embed" 
-        data-rss="https://www.behance.net/gallery/171240961/Shalom-logo-design"
+        data-rss="https://www.behance.net/wedisarah"
         data-maxcols="3" 
         data-layout="grid"
         data-poststyle="inline" 
