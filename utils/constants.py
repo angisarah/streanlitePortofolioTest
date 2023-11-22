@@ -43,7 +43,7 @@ info = {
    "Project":"https://author.skills.network/instructors/vicky_kuo",
    "Medium":"https://medium.com/@vicky-note/about",
    "City":"Addis Ababa,Ethiopia",
-   "Resume": "",
+   "Resume": "https://drive.google.com/file/d/1Y-KYfjX0T1mQ7r1SSMGbvfzahYj9vPlF/view?usp=drive_link",
    "Email": "wedisarah123@gmail.com" 
 }
 
