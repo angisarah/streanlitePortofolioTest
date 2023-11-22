@@ -34,7 +34,7 @@ with st.sidebar:
         
     st.caption(f"© Made by Vicky Kuo 2023. All rights reserved.")
  
-st.title("📝 Resume")
+st.title("📝 Resu me")
 
 st.write(f"[Click here if it's blocked by your browser]({info['Resume']})")
 
