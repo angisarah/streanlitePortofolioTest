@@ -6,7 +6,7 @@ import torch
 from langchain.embeddings import HuggingFaceEmbeddings
 from llama_index.embeddings import LangchainEmbedding
 from langchain.embeddings import OpenAIEmbeddings
-from llama_index import (GPTVectorStoreIndex, SimpleDirectoryReader, LLMPredictor, ServiceContext,)
+#from llama_index import (GPTVectorStoreIndex, SimpleDirectoryReader, LLMPredictor, ServiceContext,)
 from langchain.embeddings import HuggingFaceInstructEmbeddings
 from llama_index import GPTVectorStoreIndex
 
