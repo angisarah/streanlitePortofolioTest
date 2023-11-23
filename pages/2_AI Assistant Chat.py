@@ -70,7 +70,7 @@ with st.spinner("Initiating the AI assistant. Please hold..."):
     Project_id = "f86a3aa8-31a8-43d6-be95-c1ab12df935c"
 
     # Function to initialize the language model and its embeddings
-    init_watson_assistant()
+
     def init_watson_assistant():
         global assistant
     
