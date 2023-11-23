@@ -10,7 +10,7 @@ from ibm_watson_machine_learning.foundation_models.utils.enums import ModelTypes
 from ibm_watson_machine_learning.metanames import GenTextParamsMetaNames as GenParams
 from ibm_watson_machine_learning.foundation_models import Model
 
-st.title("ðŸ’¬ Chat with My AI Assistant")
+st.title("ኬፍ talk to my AI Assistant")
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
