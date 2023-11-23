@@ -1,10 +1,8 @@
 import streamlit as st
 from utils.constants import *
 import torch
-from llama_index.embeddings import LangchainEmbedding
-from llama_index import (GPTVectorStoreIndex, SimpleDirectoryReader, LLMPredictor, 
-                         ServiceContext,)
-from langchain.embeddings import HuggingFaceInstructEmbeddings
+
+
 from ibm_watson_machine_learning.foundation_models.extensions.langchain import WatsonxLLM
 from ibm_watson_machine_learning.foundation_models.utils.enums import ModelTypes, DecodingMethods
 from ibm_watson_machine_learning.metanames import GenTextParamsMetaNames as GenParams
@@ -72,40 +70,41 @@ with st.spinner("Initiating the AI assistant. Please hold..."):
     Project_id = "f86a3aa8-31a8-43d6-be95-c1ab12df935c"
 
     # Function to initialize the language model and its embeddings
-    def init_llm():
-        global llm_hub, embeddings
-        
-        params = {
-            GenParams.MAX_NEW_TOKENS: 512, # The maximum number of tokens that the model can generate in a single run.
-            GenParams.MIN_NEW_TOKENS: 1,   # The minimum number of tokens that the model should generate in a single run.
-            GenParams.DECODING_METHOD: DecodingMethods.SAMPLE, # The method used by the model for decoding/generating new tokens. In this case, it uses the sampling method.
-            GenParams.TEMPERATURE: 0.7,   # A parameter that controls the randomness of the token generation. A lower value makes the generation more deterministic, while a higher value introduces more randomness.
-            GenParams.TOP_K: 50,          # The top K parameter restricts the token generation to the K most likely tokens at each step, which can help to focus the generation and avoid irrelevant tokens.
-            GenParams.TOP_P: 1            # The top P parameter, also known as nucleus sampling, restricts the token generation to a subset of tokens that have a cumulative probability of at most P, helping to balance between diversity and quality of the generated text.
-        }
-        
-        credentials = {
-            'url': "https://us-south.ml.cloud.ibm.com",
-            'apikey' : Watsonx_API
-        }
-    
-        model_id = ModelTypes.LLAMA_2_70B_CHAT
-        
-        model = Model(
-            model_id= model_id,
-            credentials=credentials,
-            params=params,
-            project_id=Project_id)
-    
-        llm_hub = WatsonxLLM(model=model)
-    
-        #Initialize embeddings using a pre-trained model to represent the text data.
-        embeddings = HuggingFaceInstructEmbeddings(
-            model_name="sentence-transformers/all-MiniLM-L6-v2", model_kwargs={"device": DEVICE}
-        )
-    
-    init_llm()
-    
+    init_watson_assistant()
+    def init_watson_assistant():
+    global assistant
+
+    authenticator = IAMAuthenticator('HaAse7ogOtxHmx-eFIZPREvr_cczgSsQO0sIW4Ny3B-H')
+    assistant = AssistantV2(
+        version='2023-11-23',
+        authenticator=authenticator
+    )
+    assistant.set_service_url('https://api.au-syd.assistant.watson.cloud.ibm.com/instances/2c797ed4-bf50-4a03-bf26-8c8031cf9e55')
+    assistant_id = 'ab4f6ec4-3ca4-4471-8fc9-5f28fbd30828'
+
+    def ask_watson_assistant(user_query):
+    global assistant
+
+    message_input = {
+        'message_type': 'text',
+        'text': user_query
+    }
+
+    result = assistant.message_stateless(
+        assistant_id,
+        input=message_input
+    ).get_result()
+
+    # Extract and return text responses
+    responses = [response['text'] for response in result.get('output', {}).get('generic', []) if response['response_type'] == 'text']
+    return '\n'.join(responses)
+
+# ... (remaining code remains unchanged)
+
+def ask_bot(user_query):
+    # Use the Watson Assistant code to get responses
+    return ask_watson_assistant(user_query)
+  
     # load the file
     documents = SimpleDirectoryReader(input_files=["bio.txt"]).load_data()
     
