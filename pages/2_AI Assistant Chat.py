@@ -1,7 +1,8 @@
 import streamlit as st
 from utils.constants import *
 import torch
-
+from ibm_watson import AssistantV2
+from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
 from ibm_watson_machine_learning.foundation_models.extensions.langchain import WatsonxLLM
 from ibm_watson_machine_learning.foundation_models.utils.enums import ModelTypes, DecodingMethods
