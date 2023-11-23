@@ -72,32 +72,32 @@ with st.spinner("Initiating the AI assistant. Please hold..."):
     # Function to initialize the language model and its embeddings
     init_watson_assistant()
     def init_watson_assistant():
-    global assistant
-
-    authenticator = IAMAuthenticator('HaAse7ogOtxHmx-eFIZPREvr_cczgSsQO0sIW4Ny3B-H')
-    assistant = AssistantV2(
-        version='2023-11-23',
-        authenticator=authenticator
-    )
-    assistant.set_service_url('https://api.au-syd.assistant.watson.cloud.ibm.com/instances/2c797ed4-bf50-4a03-bf26-8c8031cf9e55')
-    assistant_id = 'ab4f6ec4-3ca4-4471-8fc9-5f28fbd30828'
+        global assistant
+    
+        authenticator = IAMAuthenticator('HaAse7ogOtxHmx-eFIZPREvr_cczgSsQO0sIW4Ny3B-H')
+        assistant = AssistantV2(
+            version='2023-11-23',
+            authenticator=authenticator
+        )
+        assistant.set_service_url('https://api.au-syd.assistant.watson.cloud.ibm.com/instances/2c797ed4-bf50-4a03-bf26-8c8031cf9e55')
+        assistant_id = 'ab4f6ec4-3ca4-4471-8fc9-5f28fbd30828'
 
     def ask_watson_assistant(user_query):
-    global assistant
+        global assistant
+    
+        message_input = {
+            'message_type': 'text',
+            'text': user_query
+        }
+    
+        result = assistant.message_stateless(
+            assistant_id,
+            input=message_input
+        ).get_result()
 
-    message_input = {
-        'message_type': 'text',
-        'text': user_query
-    }
-
-    result = assistant.message_stateless(
-        assistant_id,
-        input=message_input
-    ).get_result()
-
-    # Extract and return text responses
-    responses = [response['text'] for response in result.get('output', {}).get('generic', []) if response['response_type'] == 'text']
-    return '\n'.join(responses)
+        # Extract and return text responses
+        responses = [response['text'] for response in result.get('output', {}).get('generic', []) if response['response_type'] == 'text']
+        return '\n'.join(responses)
 
 # ... (remaining code remains unchanged)
 
