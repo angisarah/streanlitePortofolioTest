@@ -81,7 +81,7 @@ with st.spinner("Initiating the AI assistant. Please hold..."):
         )
         assistant.set_service_url('https://api.au-syd.assistant.watson.cloud.ibm.com/instances/2c797ed4-bf50-4a03-bf26-8c8031cf9e55')
         assistant_id = 'ab4f6ec4-3ca4-4471-8fc9-5f28fbd30828'
-
+    init_watson_assistant()
     def ask_watson_assistant(user_query):
         global assistant
     
