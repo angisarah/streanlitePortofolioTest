@@ -1,24 +1,20 @@
 import streamlit as st
 from utils.constants import *
 import torch
-from llama_index.embeddings import LangchainEmbedding
-from langchain.embeddings import OpenAIEmbeddings
-from llama_index import GPTVectorStoreIndex
-from llama_index import SimpleDirectoryReader
-from llama_index import LLMPredictor
-from llama_index import ServiceContext
+from llama_index import (GPTVectorStoreIndex, SimpleDirectoryReader, LLMPredictor, 
+                         ServiceContext, LangchainEmbedding)
 from langchain.embeddings import HuggingFaceInstructEmbeddings
 from ibm_watson_machine_learning.foundation_models.extensions.langchain import WatsonxLLM
 from ibm_watson_machine_learning.foundation_models.utils.enums import ModelTypes, DecodingMethods
 from ibm_watson_machine_learning.metanames import GenTextParamsMetaNames as GenParams
 from ibm_watson_machine_learning.foundation_models import Model
 
-st.title("💬 ሰላም Chat with My AI Assistant")
+st.title("ðŸ’¬ Chat with My AI Assistant")
 def local_css(file_name):
     with open(file_name) as f:
         st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
         
-local_css("styles_chat.css")
+local_css("styles/styles_chat.css")
 
 # Get the variables from constants.py
 pronoun = info['Pronoun']
@@ -60,7 +56,7 @@ with st.sidebar:
             mime='json',
         )
 
-    st.caption(f"© Made by {full_name} 2023. All rights reserved.")
+    st.caption(f"Â© Made by {full_name} 2023. All rights reserved.")
 
 
 with st.spinner("Initiating the AI assistant. Please hold..."):
@@ -71,8 +67,8 @@ with st.spinner("Initiating the AI assistant. Please hold..."):
     llm_hub = None
     embeddings = None
     
-    Watsonx_API = "Vjavnuhbwna1GTaQgQ1u2c2Nr88tW3mg-ILjz3rzGb1s"
-    Project_id= "a9d94631-8a5d-4acb-a7b3-68fc3fcf499a"
+    Watsonx_API = "k1Qk9wE6WVW1o0T5iT02Hw_bsU7ZluvWY-ePwufchFLs"
+    Project_id= "413a3871-dfed-4338-a8f9-acf622563904"
 
     # Function to initialize the language model and its embeddings
     def init_llm():
@@ -155,7 +151,7 @@ for message in st.session_state.messages:
 # If the last message is not from the assistant, generate a new response
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
-        with st.spinner("🤔 Thinking..."):
+        with st.spinner("ðŸ¤” Thinking..."):
             response = ask_bot(prompt)
             st.write(response.response)
             message = {"role": "assistant", "content": response.response}
